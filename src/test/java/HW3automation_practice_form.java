@@ -1,4 +1,5 @@
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -6,21 +7,6 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-//1. Заполнить поле "First name" // Chandra firstName
-//2. Заполнить поле "Last name" // Nalaar
-//3. Заполнить поле "email" // kaladesh@testmail.test userEmail
-//4. Выбрать пол // Female
-//5. Ввести телефонный номер // 1234567890 userNumber
-//6. Ввести дату рождения // 01 January,2000
-//7. Заполнить текстовое поле Subject // Hindi
-//8. Отметить все чекбоксы // Reading
-//9. Выбрать изображение // 58287bd0f0c02.jpg
-//10. Заполнить поле Current address // 10 Crestwood DrHudson currentAddress
-//11. Выбрать State // NCR Delhi
-//12. Выбрать City // NCR Delhi
-//13. Нажать на кнопку Submit.
-//14. Проверить данные.
-// https://demoqa.com/automation-practice-form
 public class HW3automation_practice_form {
 
     @BeforeAll
@@ -32,6 +18,9 @@ public class HW3automation_practice_form {
     @Test
     void fillFormTest(){
         open("/automation-practice-form");
+
+        Selenide.executeJavaScript("$('#fixedban').remove()");
+        Selenide.executeJavaScript("$('footer').remove()");
 
         $("#firstName").setValue("Chandra");
         $("#lastName").setValue("Nalaar");
